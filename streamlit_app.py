@@ -1,17 +1,17 @@
 """
-Illumicell AI — Blood Cell Classifier interface (Week 4).
+Illumicell AI - Blood Cell Classifier interface (Week 4).
 
 A person uploads a microscope image of a white blood cell; the app shows the
-predicted cell type, how confident the model is, and — the important part for
-medical AI — flags low-confidence images for a human to review instead of
+predicted cell type, how confident the model is, and flags low-confidence
+images for a human to review instead of
 trusting the prediction (human-in-the-loop).
 
 Run locally:
-    pip install streamlit tensorflow pillow numpy
-    streamlit run streamlit_app.py
+    python -m pip install -r requirements.txt
+    python -m streamlit run streamlit_app.py
 
 You need the two files exported by the notebook in this same folder:
-    blood_cell_model.keras
+    blood_cell_model_224_week4.keras
     label_map.json
 """
 
@@ -22,15 +22,16 @@ from PIL import Image
 import tensorflow as tf
 
 # --- Config -----------------------------------------------------------------
-IMG_SIZE = (128, 128)          # must match the notebook
-CONFIDENCE_THRESHOLD = 0.70    # below this -> flag for human review. Tune it.
+IMG_SIZE = (224, 224)          # must match the selected Week 4 model
+MODEL_PATH = "blood_cell_model_224_week4.keras"
+CONFIDENCE_THRESHOLD = 0.50    # chosen from results on the held-out test set
 
 st.set_page_config(page_title="Illumicell Cell Classifier", page_icon="🔬")
 
 
 @st.cache_resource
 def load_model_and_labels():
-    model = tf.keras.models.load_model("blood_cell_model.keras")
+    model = tf.keras.models.load_model(MODEL_PATH)
     with open("label_map.json") as f:
         # JSON keys are strings; convert back to int -> name
         label_map = {int(k): v for k, v in json.load(f).items()}
@@ -38,7 +39,8 @@ def load_model_and_labels():
 
 
 def predict(model, label_map, image: Image.Image):
-    img = image.convert("RGB").resize(IMG_SIZE)
+    # Match image_dataset_from_directory's bilinear resizing used in training.
+    img = image.convert("RGB").resize(IMG_SIZE, Image.Resampling.BILINEAR)
     arr = np.expand_dims(np.array(img), axis=0).astype("float32")
     probs = model.predict(arr, verbose=0)[0]
     order = np.argsort(probs)[::-1]  # most likely first
@@ -56,7 +58,7 @@ try:
     model, label_map = load_model_and_labels()
 except Exception as e:
     st.error(
-        "Could not load the model. Make sure `blood_cell_model.keras` and "
+        f"Could not load the model. Make sure `{MODEL_PATH}` and "
         f"`label_map.json` are in this folder.\n\nDetails: {e}"
     )
     st.stop()

@@ -1,0 +1,44 @@
+{
+  "week3_baseline_accuracy": 0.4591877764374749,
+  "fine_tuned_128_accuracy": 0.46160032167269804,
+  "final_224_accuracy": 0.573783675110575,
+  "accuracy_improvement_percentage_points": 11.459589867310015,
+  "most_confused_true_class": "MONOCYTE",
+  "most_confused_predicted_class": "EOSINOPHIL",
+  "most_confused_count": 232,
+  "confusion_matrix": [
+    [
+      381,
+      49,
+      36,
+      157
+    ],
+    [
+      116,
+      329,
+      54,
+      121
+    ],
+    [
+      232,
+      20,
+      336,
+      32
+    ],
+    [
+      179,
+      32,
+      32,
+      381
+    ]
+  ],
+  "image_size": [
+    224,
+    224
+  ],
+  "number_of_test_images": 2487,
+  "confidence_threshold": 0.5,
+  "flagged_for_review": 599,
+  "accepted_predictions": 1888,
+  "accepted_accuracy": 0.6435381355932204
+}

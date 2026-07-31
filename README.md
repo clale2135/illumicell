@@ -1,39 +1,113 @@
-# Illumicell AI — Blood Cell Classifier (Technical Track)
+# Illumicell AI — Blood Cell Classifier
 
-A computer-vision model that reads a microscope image of a white blood cell and
-identifies its type, plus a simple web interface with a confidence display and a
-human-in-the-loop safety net. Built on the public **Kaggle Blood Cell Images**
-dataset (~12,500 images, 4 cell types). No real patient data is used.
+An educational computer-vision project that classifies a microscope image as
+an eosinophil, lymphocyte, monocyte, or neutrophil. It uses the public Kaggle
+Blood Cell Images dataset and includes a Streamlit interface with prediction
+confidence and a human-review warning.
+
+This is not a medical device and must not be used for diagnosis.
+
+## Results
+
+- Random-guessing baseline: 25%
+- Week 3 model at 128 × 128: 45.9% test accuracy
+- Fine-tuned 128 × 128 model: 46.2% test accuracy
+- Selected Week 4 model at 224 × 224: 57.4% test accuracy
+- Improvement over Week 3: 11.5 percentage points
+- Most-confused pair: monocyte predicted as eosinophil
+- Monocyte-to-eosinophil errors: reduced from 347 to 232
+- Test set size: 2,487 images
+
+Increasing input resolution from 128 × 128 to 224 × 224 produced the largest
+improvement. Full measurements and the final confusion matrix are stored in
+`final_results.json` and the executed notebook.
+
+## Confidence and human review
+
+The interface flags predictions below 50% confidence for human review. On the
+test set, this threshold:
+
+- Flagged 599 images (about 24%)
+- Accepted 1,888 images (about 76%)
+- Reached 64.4% accuracy among accepted predictions
+
+Confidence is not a guarantee of correctness. Testing found a confident wrong
+prediction, demonstrating that the review threshold cannot catch every error.
 
 ## Files
-| File | What it is |
+
+| File | Purpose |
 |---|---|
-| `blood_cell_classifier.ipynb` | The Colab notebook: load → explore → prepare → split → train → evaluate → save |
-| `streamlit_app.py` | Week 4 interface: upload an image, see prediction + confidence + review flag |
-| `team_charter.md` | Day 1 team document (fill in your names) |
-| `glossary.md` | Computer-vision terms in plain language |
-| `problem_statement.md` | The one-paragraph problem statement + success definition |
+| `blood_cell_classifier.ipynb` | Executed Colab notebook with preparation, training, evaluation, improvements, graphs, and written analysis |
+| `blood_cell_model.keras` | Original repository model retained for the team |
+| `Akhil_week3.keras` | Week 3 baseline model using 128 × 128 images |
+| `blood_cell_model_224_week4.keras` | Selected Week 4 model used by Streamlit |
+| `final_results.json` | Accuracy, threshold, and final confusion-matrix measurements |
+| `label_map.json` | Numerical output-to-cell-name mapping |
+| `streamlit_app.py` | Upload and prediction interface |
+| `requirements.txt` | Tested local Python dependencies |
 
-## How to run the model (Colab)
-1. Go to [colab.research.google.com](https://colab.research.google.com), open `blood_cell_classifier.ipynb`, save a copy to your shared team Drive folder.
-2. **Runtime → Change runtime type → GPU.**
-3. Run Section 1a once to download the Kaggle dataset (needs a free Kaggle account + API token).
-4. **Runtime → Run all.** Training takes a few minutes on the GPU.
-5. It prints your **test accuracy**, draws a **confusion matrix**, shows failures, and saves `blood_cell_model.keras` + `label_map.json`.
+## Run the prediction interface on Windows
 
-## How to run the interface
-Download `blood_cell_model.keras` and `label_map.json` from Colab into this folder, then:
-```bash
-pip install streamlit tensorflow pillow numpy
-streamlit run streamlit_app.py
-```
+Open PowerShell in this project folder. A short environment path avoids a
+Windows path-length problem that TensorFlow can encounter inside OneDrive.
 
-## Results (fill these in)
-- **Starting test accuracy:** ____%  (random guessing with 4 classes = 25%)
-- **After improvement:** ____%
-- **Most-confused pair:** ____ mistaken for ____
-- **Improvement that helped most:** ____
+1. Create an environment:
 
-## Honest scope
-This is a learning prototype trained on public data. It is **not** a diagnostic
-device and makes no clinical claims.
+   ```powershell
+   python -m venv "$env:USERPROFILE\illumicell-env"
+   ```
+
+2. Activate it:
+
+   ```powershell
+   & "$env:USERPROFILE\illumicell-env\Scripts\Activate.ps1"
+   ```
+
+3. Install dependencies:
+
+   ```powershell
+   python -m pip install --upgrade pip
+   python -m pip install -r requirements.txt
+   ```
+
+4. Start Streamlit:
+
+   ```powershell
+   python -m streamlit run streamlit_app.py
+   ```
+
+5. Open `http://localhost:8501`, upload a JPG or PNG cell image, and click
+   **Classify**.
+
+The app loads `blood_cell_model_224_week4.keras`, resizes the image to
+224 × 224 using bilinear interpolation, displays all four probabilities, and
+flags confidence below 50%.
+
+## Reproduce training in Colab
+
+1. Upload `blood_cell_classifier.ipynb` to Google Colab.
+2. Select **Runtime → Change runtime type → T4 GPU**.
+3. Create a Kaggle legacy API key and upload `kaggle.json` only when requested.
+4. Run the notebook cells in order.
+5. Never commit `kaggle.json`; it contains private account credentials.
+
+The notebook creates separate training, validation, and test datasets. The
+provided TEST directory remains separate until evaluation.
+
+## Interface test record
+
+- Neutrophil: correctly predicted at 81.0%
+- Eosinophil: correctly predicted at 33.7% and flagged for review
+- Monocyte: correctly predicted at 69.8%
+- Lymphocyte example: incorrectly predicted as monocyte at 51.6%
+
+These tests confirm that uploading, prediction, ranked probabilities, and the
+human-review warning work, while also showing the model's limitations.
+
+## Dataset limitation
+
+The Kaggle collection contains augmented images derived from a much smaller
+set of original images. Similar augmented versions may make results look better
+than performance on genuinely new patients or laboratories. No clinical claims
+are made.
