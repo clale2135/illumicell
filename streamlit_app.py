@@ -85,9 +85,10 @@ if uploaded is not None:
 
         st.metric("Confidence", f"{top_conf*100:.1f}%")
 
-        # Show the top 3 so an honest 'it's between two types' is visible
+        # Show every class so an honest 'it's between two types' is visible
+        # and the true class can never be hidden below the cut-off.
         st.subheader("All predictions")
-        for name, conf in ranked[:3]:
+        for name, conf in ranked:
             st.write(f"{name}")
             st.progress(min(max(conf, 0.0), 1.0))
             st.caption(f"{conf*100:.1f}%")
