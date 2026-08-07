@@ -5,8 +5,8 @@ Week 1, Day 1 deliverable. Fill in the blanks with your team.
 ## Team
 | Name | Strengths | What they want to learn |
 |---|---|---|
-|  |  |  |
-|  |  |  |
+| Mishika Ravi |  |  |
+| Clare Lee |  |  |
 |  |  |  |
 
 ## How we work
