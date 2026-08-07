@@ -3,7 +3,9 @@
 Week 1 deliverable. Rewrite these in *your* words before submitting — being able
 to explain them plainly is what Week 5 is graded on.
 
-- **Computer vision** — teaching a computer to understand pictures. Ours looks at a cell photo and says which type of cell it is.
+- **Computer vision** — defined by enabling the ability of a computer to interpret, analyse and extract important information from digital images, effectively allowing machines to gain sight. 
+A daily use example for this is the filter effects on social media, as apps like Snapchat or TikTok trace the key features of your face in real time so digital masks, makeup, or funny filters stay attached as you move.
+In our case it would be the recognition of the cell type after looking at its image 
 - **Classification** — sorting each input into a category. Our four categories are the four white-blood-cell types.
 - **Training** — showing the model thousands of labeled example images so it learns the visual patterns of each cell type.
 - **Model** — the trained program: image goes in, a predicted cell type comes out.
