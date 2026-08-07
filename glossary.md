@@ -1,4 +1,4 @@
-# Glossary (in our own words)
+# Glossary 
 
 Week 1 deliverable. Rewrite these in *your* words before submitting — being able
 to explain them plainly is what Week 5 is graded on.
