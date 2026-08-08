@@ -20,8 +20,8 @@ Week 1, Day 1 deliverable. Fill in the blanks with your team.
 ## Rotating roles (change each week)
 | Week | Lead (schedule + Friday plan) | Scribe (notebook + label mapping) | Reviewer (guards the train/test split) |
 |---|---|---|---|
-| 1 | Mishika Ravi|  |  Clare Lee |
-| 2 |  |  |  |
+| 1 | Mishika Ravi| Arjun Rameswamy |  Clare Lee |
+| 2 |  |  Clare Lee |  |
 | 3 |  | Mishika Ravi|  |
 | 4 |  |  |  |
 | 5 |  |  |  |
