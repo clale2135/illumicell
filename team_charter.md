@@ -20,11 +20,11 @@ Week 1, Day 1 deliverable. Fill in the blanks with your team.
 ## Rotating roles (change each week)
 | Week | Lead (schedule + Friday plan) | Scribe (notebook + label mapping) | Reviewer (guards the train/test split) |
 |---|---|---|---|
-| 1 |  |  |  |
+| 1 | Mishika Ravi|  |  |
 | 2 |  |  |  |
-| 3 |  |  |  |
+| 3 |  | Mishika Ravi|  |
 | 4 |  |  |  |
-| 5 |  |  |  |
+| 5 |  |  | Mishika Ravi |
 
 ## Daily rhythm
 Start every session with a 5-minute standup: what I did, what I'll do next, what's blocking me. Save the notebook at the end of every session so nobody loses work.
