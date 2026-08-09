@@ -11,8 +11,8 @@ In our case it would be the recognition of the cell type after looking at its im
 - **Label** — the expected answer or tag assigned to a virtual picture, such as identifying an object in an image, this helps the computer what to look out for during training (e.g. "this is a lymphocyte").
 - **Training set / test set** — is the portion of data given to a machine learning model so it call learns patterns and makes prediction 
 - **Accuracy** — a perfomance calculation that measures the percentage of correct predictions makes out of its total prediction . With 4 equal classes, random guessing is ~25%.
-- **Confusion matrix** — a table showing which categories get mixed up. The diagonal is correct; off-diagonal cells are specific mistakes.
-- **Confidence** — how sure the model is about a prediction. Low confidence means a human should double-check.
-- **Transfer learning** — starting from a model already trained on millions of images and adapting it to our task. Much faster and more accurate than starting from scratch.
-- **Data augmentation** — making more training examples by flipping/rotating/zooming images so the model generalizes better.
-- **Human-in-the-loop** — keeping a person in the process to review the cases the model is unsure about. Essential in medical AI.
+- **Confusion matrix** — is a score card that shows how many times it got confused and made a mistake.
+- **Confidence** — In machine learning, confidence is a number usually a percentage from 0% to 100% that tells you how sure the model's about its prediction.
+- **Transfer learning** — is a machine learning technique where a model trained on one task is reused as the starting point for a different, but related task. Instead of building and training a model from scratch, which takes massive amounts of data, time , and computing power, you take a moel that already knows basic patterns and finetune, it for your specific goal.
+- **Data augmentation** — is a technique used in machine learning to artificially increase the size and diversity of a a training dataset without collecting new real-world data. Instead of gather more data, you make modified copies of the data you already have.
+- **Human-in-the-loop** — is an AI approach that combines human intelligence with machine learning models during training, testing, or operation. Instead of letting an AI make decisions completely on its own (fully automated), a human stays in Human-in-the-Loop (HITL) is an AI approach that combine
