@@ -13,7 +13,7 @@ Week 1, Day 1 deliverable. Fill in the blanks with your team.
 
 ## How we work
 - **Meeting times:** ____
-- **How we communicate:** ____ (e.g. group chat + shared Drive folder)
+- **How we communicate:** Slack group chat + shared Drive folder
 - **Shared folder link:** https://drive.google.com/drive/folders/1CWcY_3vV88XXUWFM4VKz-wr5qrUc6cco?usp=sharing 
 - **Shared notebook / repo:** https://github.com/clale2135/illumicell
 
