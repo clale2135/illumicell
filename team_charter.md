@@ -12,7 +12,7 @@ Week 1, Day 1 deliverable. Fill in the blanks with your team.
 | Ridhima Garodia | building a presell page before writing any code, taking an idea from any vertical and finding the wedge|I want to learn how investors actually weigh team vs. traction and how validation turns into paying retained users|
 
 ## How we work
-- **Meeting times:** ____
+- **Meeting times:** 10:00 AM EST, 10:30 AM EST, 04:30 PM EST, 06:30 PM EST, 10:30 PM EST 
 - **How we communicate:** Slack group chat + shared Drive folder
 - **Shared folder link:** https://drive.google.com/drive/folders/1CWcY_3vV88XXUWFM4VKz-wr5qrUc6cco?usp=sharing 
 - **Shared notebook / repo:** https://github.com/clale2135/illumicell
