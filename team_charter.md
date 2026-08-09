@@ -9,7 +9,7 @@ Week 1, Day 1 deliverable. Fill in the blanks with your team.
 | Clare Lee |  |  |
 | Akhil Yenamandra |  |  |
 | Arjun Rameswamy |  |  |
-| Ridhima |  |  |
+| Ridhima Garodia |  |  |
 
 ## How we work
 - **Meeting times:** ____
