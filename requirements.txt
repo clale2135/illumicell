@@ -5,4 +5,7 @@ tensorflow-cpu==2.21.0; sys_platform == "linux"
 tensorflow==2.21.0; sys_platform != "linux"
 streamlit==1.60.0
 pillow==12.3.0
-numpy==2.5.1
+# Left unpinned: numpy 2.5 requires Python >=3.12, which fails to install on
+# older deployment Pythons. This range lets pip pick the newest numpy the
+# running interpreter supports.
+numpy>=1.26,<3
