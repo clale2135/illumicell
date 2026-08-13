@@ -1,4 +1,8 @@
-tensorflow==2.21.0
+# tensorflow-cpu is the same library without the bundled GPU stack: 274 MB
+# instead of 573 MB, which is what fits in Streamlit Cloud's build. It has no
+# macOS wheels, so plain tensorflow is still used for local runs.
+tensorflow-cpu==2.21.0; sys_platform == "linux"
+tensorflow==2.21.0; sys_platform != "linux"
 streamlit==1.60.0
 pillow==12.3.0
 numpy==2.5.1
