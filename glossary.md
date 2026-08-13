@@ -9,7 +9,7 @@ In our case it would be the recognition of the cell type after looking at its im
 - **Training** — the process of giving a computer-learning-algorithm a big dataset of images so it can learn to recognize patterns, features and objects on its own. In our case this would be to show the model thousands of labeled cell type images.
 - **Model** — is a computer program that looks at data, learns patterns and makes predictions. Our trained program: image goes in, a predicted cell type comes out.
 - **Label** — the expected answer or tag assigned to a virtual picture, such as identifying an object in an image, this helps the computer what to look out for during training (e.g. "this is a lymphocyte").
-- **Training set / test set** — is the portion of data given to a machine learning model so it call learns patterns and makes prediction 
+- **Training set / test set** — is the portion of data given to a machine learning model so it can learn patterns and make prediction 
 - **Accuracy** — a perfomance calculation that measures the percentage of correct predictions makes out of its total prediction . With 4 equal classes, random guessing is ~25%.
 - **Confusion matrix** — is a score card that shows how many times it got confused and made a mistake.
 - **Confidence** — In machine learning, confidence is a number usually a percentage from 0% to 100% that tells you how sure the model's about its prediction.
